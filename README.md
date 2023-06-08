@@ -1,10 +1,8 @@
-# ELEGANT-SPACES-BMS-SYSTEM
 
-This is for my ALX portfolio project
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BMS Project Landing Page</title>
+  <title>ELEGANT-SPACES-BMS-SYSTEM</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
