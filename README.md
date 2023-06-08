@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ELEGANT-SPACES-BMS-SYSTEM</title>
+  ELEGANT-SPACES-BMS-SYSTEM
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -69,3 +69,36 @@
   </footer>
 </body>
 </html>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  color: #fff;
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+}
+
+section {
+  padding: 50px 0;
+  text-align: center;
+}
+
