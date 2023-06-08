@@ -1,72 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-   BMS Project Landing Page
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Building Management System</title>
+  <style>
+    /* Body background color */
+    body {
+      background-color: #f5f5f5;
+    }
+
+    /* Heading colors */
+    h1, h2 {
+      color: #333;
+    }
+
+    /* Navigation bar styles */
+    .navbar {
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    .navbar a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    /* Container background color */
+    .container {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#screenshots">Screenshots</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Navigation bar -->
+  <div class="navbar">
+    <a href="#lighting">Lighting</a>
+    <a href="#energy">Energy Consumption</a>
+    <a href="#access">Access Control</a>
+    <a href="#hvac">HVAC Systems</a>
+    <a href="#fire">Fire Systems</a>
+    <a href="#tenancy">Tenancy</a>
+  </div>
 
-  <section id="hero">
-    <div class="hero-content">
-      <h1>Welcome to BMS Project</h1>
-      <p>A Building Management System to control and monitor lighting, energy consumption, access control, HVAC systems, fire systems, and tenancy.</p>
-      <a href="#contact" class="btn">Get in touch</a>
-    </div>
-  </section>
+  <div class="container">
+    <h1>Building Management System</h1>
+    <h2>Welcome to the BMS!</h2>
 
-  <section id="about" class="section">
-    <div class="container">
-      <h2>About</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum ligula eu justo vehicula, vitae facilisis mauris eleifend. Vivamus sed laoreet dolor. Donec vitae neque eros. Proin pretium suscipit scelerisque. Nam efficitur scelerisque neque et rutrum.</p>
+    <!-- Lighting -->
+    <div id="lighting">
+      <h2>Lighting Control and Monitoring</h2>
+      <!-- Add lighting UI elements -->
     </div>
-  </section>
 
-  <section id="features" class="section">
-    <div class="container">
-      <h2>Features</h2>
-      <ul>
-        <li>Lighting control and monitoring</li>
-        <li>Energy consumption monitoring</li>
-        <li>Access control management</li>
-        <li>HVAC systems control and monitoring</li>
-        <li>Fire systems management</li>
-        <li>Tenancy management</li>
-      </ul>
+    <!-- Energy Consumption -->
+    <div id="energy">
+      <h2>Energy Consumption Monitoring</h2>
+      <!-- Add energy consumption UI elements -->
     </div>
-  </section>
 
-  <section id="screenshots" class="section">
-    <div class="container">
-      <h2>Screenshots</h2>
-      <!-- Add screenshots here -->
+    <!-- Access Control -->
+    <div id="access">
+      <h2>Access Control</h2>
+      <!-- Add access control UI elements -->
     </div>
-  </section>
 
-  <section id="contact" class="section">
-    <div class="container">
-      <h2>Contact</h2>
-      <p>For inquiries and support, please reach out to us:</p>
-      <p>Email: info@bmsproject.com</p>
-      <p>Phone: 123-456-7890</p>
+    <!-- HVAC Systems -->
+    <div id="hvac">
+      <h2>HVAC Systems</h2>
+      <!-- Add HVAC systems UI elements -->
     </div>
-  </section>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2023 BMS Project. All rights reserved.</p>
+    <!-- Fire Systems -->
+    <div id="fire">
+      <h2>Fire Systems</h2>
+      <!-- Add fire systems UI elements -->
     </div>
-  </footer>
+
+    <!-- Tenancy -->
+    <div id="tenancy">
+      <h2>Tenancy Management</h2>
+      <!-- Add tenancy UI elements -->
+    </div>
+  </div>
 </body>
 </html>
-
-
