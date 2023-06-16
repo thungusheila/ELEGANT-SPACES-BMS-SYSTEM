@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lighting Control</title>
+  <style>
+    .container {
+      text-align: center;
+      margin-top: 50px;
+      background-color: beige;
+    }
+
+h1 span {
+  background-color: blue;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+h2 span{ text-decoration: underline;
+font: normal;}
+    
+    #status {
+      font-weight: bold;
+    }
+    #bulb {
+      width: 100px;
+      height: 100px;
+      margin: 20px auto;
+      background-color: gray;
+      border-radius: 50%;
+
+    }
+    .on {
+      background-color: yellow;
+    }
+    .button-group {
+      margin: 10px 0;
+    }
+    .active {
+      background-color: green;
+    }
+    .inactive {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><span>Lighting Control</span></h1>
+    <div class="button-group">
+      <h2>switch status</h2>
+      <button id="onButton">Switch ON</button>
+      <button id="offButton">Switch OFF</button>
+    </div>
+    <div class="button-group">
+      <h2>occupancy status</h2>
+      <button id="occupiedButton">Occupied</button>
+      <button id="notOccupiedButton">Not Occupied</button>
+    </div>
+    <div class="button-group">
+      <h2>fault status</h2>
+      <button id="activeFaultButton">Active Fault</button>
+      <button id="inactiveFaultButton">Inactive Fault</button>
+    </div>
+    <div>
+      <label>Status:</label>
+      <span id="status">OFF</span>
+    </div>
+    <div id="bulb"></div>
+  </div>
+
+  <script>
+    // Get DOM elements
+    const onButton = document.getElementById('onButton');
+    const offButton = document.getElementById('offButton');
+    const occupiedButton = document.getElementById('occupiedButton');
+    const notOccupiedButton = document.getElementById('notOccupiedButton');
+    const activeFaultButton = document.getElementById('activeFaultButton');
+    const inactiveFaultButton = document.getElementById('inactiveFaultButton');
+    const statusElement = document.getElementById('status');
+    const bulbElement = document.getElementById('bulb');
+
+    // Initialize lighting state
+    let isOn = false;
+    let isOccupied = false;
+    let hasFault = false;
+
+    // Function to update lighting status
+    function updateStatus() {
+      if (isOn && isOccupied && !hasFault) {
+        statusElement.textContent = 'ON';
+        bulbElement.style.backgroundColor = 'yellow';
+      } else {
+        statusElement.textContent = 'OFF';
+        bulbElement.style.backgroundColor = 'gray';
+      }
+    }
+
+    // Function to update button state
+    function updateButtonState(buttonId, isActive) {
+      const button = document.getElementById(buttonId);
+      button.classList.remove('active', 'inactive');
+      button.classList.add(isActive ? 'active' : 'inactive');
+    }
+
+    // Event listener for on button
+    onButton.addEventListener('click', function() {
+      if (isOccupied && !hasFault) {
+        isOn = true;
+        updateStatus();
+        updateButtonState('onButton', true);
+        updateButtonState('offButton', false);
+      }
+    });
+
+    // Event listener for off button
+    offButton.addEventListener('click', function() {
+      isOn = false;
+      updateStatus();
+      updateButtonState('onButton', false);
+      updateButtonState('offButton', true);
+    });
+
+    // Event listener for occupied button
+    occupiedButton.addEventListener('click', function() {
+      isOccupied = true;
+      updateStatus();
+      updateButtonState('occupiedButton', true);
+      updateButtonState('notOccupiedButton', false);
+    });
+
+    // Event listener for not occupied button
+    notOccupiedButton.addEventListener('click', function() {
+      isOccupied = false;
+      updateStatus();
+      updateButtonState('occupiedButton', false);
+      updateButtonState('notOccupiedButton', true);
+    });
+
+    // Event listener for active fault button
+    activeFaultButton.addEventListener('click', function() {
+      hasFault = true;
+      updateStatus();
+      updateButtonState('activeFaultButton', true);
+      updateButtonState('inactiveFaultButton', false);
+    });
+
+    // Event listener for inactive fault button
+    inactiveFaultButton.addEventListener('click', function() {
+      hasFault = false;
+      updateStatus();
+      updateButtonState('activeFaultButton', false);
+      updateButtonState('inactiveFaultButton', true);
+    });
+
+    // Initialize status
+    updateStatus();
+  </script>
+</body>
+</html>
