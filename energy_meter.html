@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMS Energy Consumption Monitoring</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .room-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .room-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f2f2f2;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .room-container {
+            display: none;
+        }
+
+        .room-container.active {
+            display: block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .graph-container {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .graph-title {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .graph {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="room-container active" id="room1-container">
+        <h2>Room 1</h2>
+
+        <table id="room1-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Power (kW)</th>
+                    <th>Voltage (V)</th>
+                    <th>Current (A)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01/01/23</td>
+                    <td>12:00 PM</td>
+                    <td>4.5</td>
+                    <td>220</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>01/01/23</td>
+                    <td>01:00 PM</td>
+                    <td>3.2</td>
+                    <td>215</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>01/01/23</td>
+                    <td>02:00 PM</td>
+                    <td>3.9</td>
+                    <td>218</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <td>01/01/23</td>
+                    <td>03:00 PM</td>
+                    <td>4.8</td>
+                    <td>222</td>
+                    <td>21</td>
+                </tr>
+                <tr>
+                    <td>01/01/23</td>
+                    <td>04:00 PM</td>
+                    <td>3.5</td>
+                    <td>216</td>
+                    <td>19</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="graph-container">
+            <h3 class="graph-title">Power Consumption Trend - Room 1</h3>
+            <div class="graph">
+                <canvas id="power-chart-room1"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="room-container" id="room2-container">
+        <h2>Room 2</h2>
+
+        <table id="room2-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Power (kW)</th>
+                    <th>Voltage (V)</th>
+                    <th>Current (A)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01/01/23</td>
+                    <td>12:00 PM</td>
+                    <td>2.8</td>
+                    <td>210</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>01/01/23</td>
+                    <td>01:00 PM</td>
+                    <td>2.5</td>
+                    <td>208</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>01/01/23</td>
+                    <td>02:00 PM</td>
+                    <td>3.1</td>
+                    <td>215</td>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <td>01/01/23</td>
+                    <td>03:00 PM</td>
+                    <td>2.9</td>
+                    <td>209</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>01/01/23</td>
+                    <td>04:00 PM</td>
+                    <td>2.7</td>
+                    <td>211</td>
+                    <td>14</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="graph-container">
+            <h3 class="graph-title">Power Consumption Trend - Room 2</h3>
+            <div class="graph">
+                <canvas id="power-chart-room2"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="room-container" id="total-container">
+        <h2>Total Consumption</h2>
+
+        <table id="total-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Power (kW)</th>
+                    <th>Voltage (V)</th>
+                    <th>Current (A)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Add total consumption data here -->
+                <tr>
+                    <td>01/01/23</td>
+                    <td>12:00 PM</td>
+                    <td>7.3</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>01/01/23</td>
+                    <td>01:00 PM</td>
+                    <td>5.7</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>01/01/23</td>
+                    <td>02:00 PM</td>
+                    <td>7.0</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>01/01/23</td>
+                    <td>03:00 PM</td>
+                    <td>7.7</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>01/01/23</td>
+                    <td>04:00 PM</td>
+                    <td>6.2</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="graph-container">
+            <h3 class="graph-title">Power Consumption Trend - Total</h3>
+            <div class="graph">
+                <canvas id="power-chart-total"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        function showRoom(room) {
+            var roomContainers = document.getElementsByClassName('room-container');
+            for (var i = 0; i < roomContainers.length; i++) {
+                roomContainers[i].classList.remove('active');
+            }
+
+            var selectedRoomContainer = document.getElementById(room + '-container');
+            selectedRoomContainer.classList.add('active');
+        }
+
+        // Power Trend Graph - Room 1
+        const datesRoom1 = ['01/01/23 12:00 PM', '01/01/23 01:00 PM', '01/01/23 02:00 PM', '01/01/23 03:00 PM', '01/01/23 04:00 PM'];
+        const powerValuesRoom1 = [4.5, 3.2, 3.9, 4.8, 3.5];
+
+        const ctxRoom1 = document.getElementById('power-chart-room1').getContext('2d');
+        new Chart(ctxRoom1, {
+            type: 'line',
+            data: {
+                labels: datesRoom1,
+                datasets: [{
+                    label: 'Power (kW)',
+                    data: powerValuesRoom1,
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Date and Time'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Power (kW)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Power Trend Graph - Room 2
+        const datesRoom2 = ['01/01/23 12:00 PM', '01/01/23 01:00 PM', '01/01/23 02:00 PM', '01/01/23 03:00 PM', '01/01/23 04:00 PM'];
+        const powerValuesRoom2 = [2.8, 2.5, 3.1, 2.9, 2.7];
+
+        const ctxRoom2 = document.getElementById('power-chart-room2').getContext('2d');
+        new Chart(ctxRoom2, {
+            type: 'line',
+            data: {
+                labels: datesRoom2,
+                datasets: [{
+                    label: 'Power (kW)',
+                    data: powerValuesRoom2,
+                    fill: false,
+                    borderColor: 'rgb(255, 99, 132)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Date and Time'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Power (kW)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Power Trend Graph - Total
+        const datesTotal = datesRoom1; // Assuming the same dates for both rooms
+        const powerValuesTotal = powerValuesRoom1.map((value, index) => value + powerValuesRoom2[index]);
+
+        const ctxTotal = document.getElementById('power-chart-total').getContext('2d');
+        new Chart(ctxTotal, {
+            type: 'line',
+            data: {
+                labels: datesTotal,
+                datasets: [{
+                    label: 'Power (kW)',
+                    data: powerValuesTotal,
+                    fill: false,
+                    borderColor: 'rgb(255, 159, 64)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Date and Time'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Power (kW)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
