@@ -12,21 +12,24 @@
   <div class="sidebar">
     <h3>Subsystems</h3>
     <ul>
-      <li><a href="lighting.html" target="subsystem">Lighting Control</a></li>
-      <li><a href="energy.html" target="subsystem">Energy Consumption</a></li>
-      <li><a href="access.html" target="subsystem">Access Control</a></li>
-      <li><a href="hvac.html" target="subsystem">HVAC Systems</a></li>
-      <li><a href="fire.html" target="subsystem">Fire Systems</a></li>
-      <li><a href="tenancy.html" target="subsystem">Tenancy</a></li>
+      <li><button onclick="openSubsystem('lighting control.html')">Lighting Control</button></li>
+      <li><button onclick="openSubsystem('energy.html')">Energy Consumption</button></li>
+      <li><button onclick="openSubsystem('access.html')">Access Control</button></li>
+      <li><button onclick="openSubsystem('hvac.html')">HVAC Systems</button></li>
+      <li><button onclick="openSubsystem('fire.html')">Fire Systems</button></li>
+      <li><button onclick="openSubsystem('tenancy.html')">Tenancy</button></li>
+    
     </ul>
   </div>
 
   <div class="content">
-    <iframe name="subsystem" frameborder="0" src="lighting.html"></iframe>
+    <img src="C:\Users\sheila.thungu\Downloads\Task\Task\building-management-system-1.jpg" alt="Building image">
   </div>
-
-  <footer>
-    <p>Building Management System &copy; 2023</p>
-  </footer>
+  
+   <script>
+    function openSubsystem(subSystemUrl) {
+      window.location.href= subSystemUrl;
+    }
+  </script>
 </body>
 </html>
