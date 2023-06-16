@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Room 1 Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .graph-container {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .graph-title {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .graph {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Room 1</h1>
+
+    <table id="room1-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Power (kW)</th>
+                <th>Voltage (V)</th>
+                <th>Current (A)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01/01/23</td>
+                <td>12:00 PM</td>
+                <td>4.5</td>
+                <td>220</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>01/01/23</td>
+                <td>01:00 PM</td>
+                <td>3.2</td>
+                <td>215</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>01/01/23</td>
+                <td>02:00 PM</td>
+                <td>3.9</td>
+                <td>222</td>
+                <td>21</td>
+            </tr>
+            <tr>
+                <td>01/01/23</td>
+                <td>03:00 PM</td>
+                <td>4.8</td>
+                <td>218</td>
+                <td>19</td>
+            </tr>
+            <tr>
+                <td>01/01/23</td>
+                <td>04:00 PM</td>
+                <td>3.5</td>
+                <td>216</td>
+                <td>19</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="graph-container">
+        <h3 class="graph-title">Power Consumption Trend - Room 1</h3>
+        <div class="graph">
+            <canvas id="power-chart-room1"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Power Trend Graph - Room 1
+        const datesRoom1 = ['01/01/23 12:00 PM', '01/01/23 01:00 PM', '01/01/23 02:00 PM', '01/01/23 03:00 PM', '01/01/23 04:00 PM'];
+        const powerValuesRoom1 = [4.5, 3.2, 3.9, 4.8, 3.5];
+
+        const ctxRoom1 = document.getElementById('power-chart-room1').getContext('2d');
+        new Chart(ctxRoom1, {
+            type: 'line',
+            data: {
+                labels: datesRoom1,
+                datasets: [{
+                    label: 'Power (kW)',
+                    data: powerValuesRoom1,
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Date and Time'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Power (kW)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
