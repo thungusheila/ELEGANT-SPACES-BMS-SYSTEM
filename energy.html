@@ -12,10 +12,10 @@
   <div class="content">
     <h2>Energy Consumption</h2>
 
-    <div id="energyMeters">
-      <button onclick="openEnergyMeter('room1')">Room 1 </button>
-      <button onclick="openEnergyMeter('room2')">Room 2 </button>
-      <button onclick="openEnergyMeter('total_consumption')">Total </button>
+    <div id="room-buttons">
+      <button onclick="openRoomPage('room1')">Room 1 </button>
+      <button onclick="openRoomPage('room2')">Room 2 </button>
+      <button onclick="openRoomPage('total_consumption')">Total </button>
       <!-- Add more buttons for other energy meters -->
     </div>
   </div>
@@ -25,9 +25,13 @@
   </footer>
 
   <script>
-    function openEnergyMeter(meterId) {
-      window.location.href = 'energy_meter.html?meter=' + meterId;
+    function openRoomPage(room) {
+            var roomUrl = room + '.html';
+            window.location.href = roomUrl;
     }
+    
+
   </script>
 </body>
 </html>
+
