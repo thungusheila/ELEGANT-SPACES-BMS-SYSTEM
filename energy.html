@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Building Management System</title>
+  <link rel="stylesheet" type="text/css" href="energy.css">
+</head>
+<body>
+  <header>
+    <h1>Building Management System</h1>
+  </header>
+
+  <div class="content">
+    <h2>Energy Consumption</h2>
+
+    <div id="energyMeters">
+      <button onclick="openEnergyMeter('room1')">Room 1 </button>
+      <button onclick="openEnergyMeter('room2')">Room 2 </button>
+      <button onclick="openEnergyMeter('total_consumption')">Total </button>
+      <!-- Add more buttons for other energy meters -->
+    </div>
+  </div>
+
+  <footer>
+    <p>Building Management System &copy; 2023</p>
+  </footer>
+
+  <script>
+    function openEnergyMeter(meterId) {
+      window.location.href = 'energy_meter.html?meter=' + meterId;
+    }
+  </script>
+</body>
+</html>
