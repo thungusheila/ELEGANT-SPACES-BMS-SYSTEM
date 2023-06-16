@@ -1,0 +1,16 @@
+/* Rest of the CSS code */
+
+.content {
+  padding: 20px;
+}
+
+#energyMeters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+}
