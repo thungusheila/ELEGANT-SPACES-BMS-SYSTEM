@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Total Consumption Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .graph-container {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .graph-title {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .graph {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Total Consumption Data</h1>
+
+    <table id="total-consumption-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Power (kW)</th>
+                <th>Voltage (V)</th>
+                <th>Current (A)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01/01/23</td>
+                <td>12:00 PM</td>
+                <td>7.3</td>
+                <td>222</td>
+                <td>36</td>
+            </tr>
+            <tr>
+                <td>01/01/23</td>
+                <td>01:00 PM</td>
+                <td>5.7</td>
+                <td>216</td>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>01/01/23</td>
+                <td>02:00 PM</td>
+                <td>6.8</td>
+                <td>231</td>
+                <td>37</td>
+            </tr>
+            <tr>
+                <td>01/01/23</td>
+                <td>03:00 PM</td>
+                <td>7.8</td>
+                <td>233</td>
+                <td>38</td>
+            </tr>
+            <tr>
+                <td>01/01/23</td>
+                <td>04:00 PM</td>
+                <td>6.2</td>
+                <td>225</td>
+                <td>36</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="graph-container">
+        <h3 class="graph-title">Power Consumption Trend - Total</h3>
+        <div class="graph">
+            <canvas id="power-chart-total"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Power Trend Graph - Total Consumption
+        const datesTotal = ['01/01/23 12:00 PM', '01/01/23 01:00 PM', '01/01/23 02:00 PM', '01/01/23 03:00 PM', '01/01/23 04:00 PM'];
+        const powerValuesTotal = [7.3, 5.7, 6.8, 7.8, 6.2];
+
+        const ctxTotal = document.getElementById('power-chart-total').getContext('2d');
+        new Chart(ctxTotal, {
+            type: 'line',
+            data: {
+                labels: datesTotal,
+                datasets: [{
+                    label: 'Power (kW)',
+                    data: powerValuesTotal,
+                    fill: false,
+                    borderColor: 'rgb(255, 99, 132)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Date and Time'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Power (kW)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
